@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-require('./app/routes/note.routes.js')(app);
+
 
 // create express app
 const app = express();
@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
     res.json({"message": "Welcome to CRUD application"});
 });
 
+require('./app/routes/note.routes.js')(app);
 // listen for requests
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
