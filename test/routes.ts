@@ -10,16 +10,16 @@ process.env.NODE_ENV = 'test';
 
 chai.use(chaiHttp);
 
-describe('Books', () => {
+describe('notes', () => {
     beforeEach((done) => {
-        // Books.remove({}, (err) => { 
+        // notes.remove({}, (err) => { 
         //    done();           
         // });        
     });
-  describe('/GET book', () => {
-      it('it should GET all the books', (done) => {
+  describe('/GET notes', () => {
+      it('it should GET all the notes', (done) => {
         chai.request(server)
-            .get('/book')
+            .get('/notes')
             .end((err, res) => {
                   res.should.have.status(200);
                   res.body.should.be.a('array');
@@ -31,16 +31,16 @@ describe('Books', () => {
   /*
   * Test the /POST route
   */
-  describe('/POST book', () => {
-      it('it should not POST a book without pages field', (done) => {
-          let book = {
+  describe('/POST notes', () => {
+      it('it should not POST a notes without pages field', (done) => {
+          let notes = {
               title: "The Lord of the Rings",
               author: "J.R.R. Tolkien",
               year: 1954
           }
         chai.request(server)
-            .post('/book')
-            .send(book)
+            .post('/notes')
+            .send(notes)
             .end((err, res) => {
                   res.should.have.status(200);
                   res.body.should.be.a('object');

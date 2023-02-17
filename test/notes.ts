@@ -13,7 +13,7 @@ let should = chai.should();
 
 chai.use(chaiHttp);
 //Our parent block
-describe('Books', () => {
+describe('notes', () => {
     beforeEach((done) => { //Before each test we empty the database
         // Book.remove({}, (err) => { 
            done();           
@@ -22,10 +22,10 @@ describe('Books', () => {
 /*
   * Test the /GET route
   */
-  describe('/GET book', () => {
-      it('it should GET all the books', (done) => {
+  describe('/GET notes', () => {
+      it('it should GET all the notes', (done) => {
         chai.request(server)
-            .get('/book')
+            .get('/notes')
             .end((err, res) => {
                   res.should.have.status(200);
                   res.body.should.be.a('array');
