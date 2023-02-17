@@ -1,7 +1,8 @@
 #CRUD APP
 
 Basic CRUD Operation App
-This is a simple app that allows you to perform CRUD (Create, Read, Update, Delete) operations on notes. It is built using Node.js and MongoDB.
+This is a simple app that allows you to perform CRUD (Create, Read, Update, Delete) operations on notes. It is built using Node.js and MongoDB.This is coded in Typescript and testing is done with chai and mocha .
+documentation is done via Swagger.
 
 Prerequisites
 Before you can run this app, you will need to have the following installed on your machine:
