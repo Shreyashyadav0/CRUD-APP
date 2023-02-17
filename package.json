@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-
   "scripts": {
-    "start": "SET NODE_ENV=dev && node server.js",
+    "start": "SET NODE_ENV=dev && node server.ts",
     "test": "mocha --timeout 10000"
   },
   "repository": {
@@ -23,7 +22,9 @@
     "config": "^3.3.9",
     "express": "^4.18.2",
     "mongoose": "^6.9.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
     "chai": "^4.3.7",

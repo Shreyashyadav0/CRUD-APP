@@ -1,21 +1,20 @@
 process.env.NODE_ENV = 'test';
 
-let mongoose = require("mongoose");
-let Book = require('../app/models/book');
+// let mongoose = require("mongoose");
+// let Book = require('../app/models/book');
 
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let server = require('../server');
-let should = chai.should();
-
+// let chai = require('chai');
+// let chaiHttp = require('chai-http');
+// let server = require('../server');
+// let should = chai.should();
 
 chai.use(chaiHttp);
 
 describe('Books', () => {
     beforeEach((done) => {
-        Book.remove({}, (err) => { 
-           done();           
-        });        
+        // Books.remove({}, (err) => { 
+        //    done();           
+        // });        
     });
   describe('/GET book', () => {
       it('it should GET all the books', (done) => {

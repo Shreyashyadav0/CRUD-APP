@@ -1,4 +1,4 @@
-const Note = require('../models/note.model.js');
+const Note = require('../models/note.model.ts');
 
 // Create and Save a new Note
 // Create and Save a new Note
@@ -118,3 +118,126 @@ exports.delete = (req, res) => {
         });
     });
 };
+/**
+ * @swagger
+ * /notes:
+ * swagger: '2.0'
+info:
+  title: Note API
+  description: API for managing notes
+  version: 1.0.0
+basePath: /api/v1
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /notes:
+    post:
+      tags:
+        - Notes
+      summary: Create a new note
+      description: Creates a new note with the given title and content
+      parameters:
+        - in: body
+          name: body
+          description: Note object
+          required: true
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+              content:
+                type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid request body
+        '500':
+          description: Internal server error
+    get:
+      tags:
+        - Notes
+      summary: Get all notes
+      description: Retrieves a list of all notes in the database
+      responses:
+        '200':
+          description: Successful operation
+        '500':
+          description: Internal server error
+
+  /notes/{noteId}:
+    get:
+      tags:
+        - Notes
+      summary: Get a note by ID
+      description: Retrieves a single note with the given ID
+      parameters:
+        - in: path
+          name: noteId
+          description: ID of note to retrieve
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+        '404':
+          description: Note not found
+        '500':
+          description: Internal server error
+    put:
+      tags:
+        - Notes
+      summary: Update a note by ID
+      description: Updates a single note with the given ID
+      parameters:
+        - in: path
+          name: noteId
+          description: ID of note to update
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: Note object
+          required: true
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+              content:
+                type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid request body
+        '404':
+          description: Note not found
+        '500':
+          description: Internal server error
+    delete:
+      tags:
+        - Notes
+      summary: Delete a note by ID
+      description: Deletes a single note with the given ID
+      parameters:
+        - in: path
+          name: noteId
+          description: ID of note to delete
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+        '404':
+          description: Note not found
+        '500':
+          description: Internal server error
+
+ */

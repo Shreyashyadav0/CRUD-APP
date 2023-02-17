@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 // create express app
 const app = express();
+require('./swagger')(app);
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -11,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
 // Configuring the database
-const dbConfig = require('./config/database.config.js');
-const mongoose = require('mongoose');
+const dbConfig = require('./config/database.config.ts');
+ mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
@@ -31,7 +32,7 @@ app.get('/', (req, res) => {
     res.json({"message": "Welcome to CRUD application"});
 });
 
-require('./app/routes/note.routes.js')(app);
+require('./app/routes/note.routes.ts')(app);
 // listen for requests
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
